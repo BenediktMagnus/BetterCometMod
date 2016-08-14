@@ -1,0 +1,257 @@
+country_event = {
+	id = 5060
+	title = "EVTNAME5060"
+	desc = "EVTDESC5060"
+	picture = COMET_SIGHTED_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 0.1
+			has_idea = comets
+		}
+		
+		modifier = {
+			factor = 0.5
+			natural_scientist = 1
+		}
+		modifier = {
+			factor = 0.5
+			luck = yes
+		}
+		modifier = {
+			factor = 1.1
+			stability = 2
+		}
+		modifier = {
+			factor = 1.1
+			stability = 3
+		}
+	}
+
+	option = {
+		name = "EVTOPTA5060"		# It's an omen
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+			
+			if = {
+				limit = { government = monarchy } 
+				add_legitimacy = 5
+			}
+			
+			if = {
+				limit = { government = republic }  
+				add_republican_tradition = 0.05
+			}
+			
+			if = {
+				limit = { government = theocracy }  
+				add_devotion = 5
+			}
+  
+		}		
+		if = {
+			limit = { stability = -2 }
+			add_stability = -1
+			
+			if = {
+				limit = { government = monarchy } 
+				add_legitimacy = 5
+			}
+			
+			if = {
+				limit = { government = republic }  
+				add_republican_tradition = 0.05
+			}
+			
+			if = {
+				limit = { government = theocracy }  
+				add_devotion = 5
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB5060"		# The end is nigh!
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+			add_manpower = 1
+		}		
+		if = {
+			limit = { stability = -2 }
+			add_stability = -1
+			add_manpower = 1
+		}
+	}
+	option = {
+		name = "EVTOPTC5060"		# The economy, fools!
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+			add_mercantilism = 0.005
+		}		
+		if = {
+			limit = { stability = -2 }
+			add_stability = -1
+			add_mercantilism = 0.005
+		}
+	}
+	option = {
+		name = "EVTOPTE5060"		# I wish I lived in more enlightened times.
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+			add_dip_power = 15
+			add_adm_power = 15
+			add_mil_power = 15
+		}		
+		if = {
+			limit = { stability = -2 }
+			add_stability = -1
+			add_dip_power = 15
+			add_adm_power = 15
+			add_mil_power = 15
+		}
+	}
+	option = {
+		name = "EVTOPTF5060"		# Sacrifice a human heart to appease the comet!
+		trigger = {
+			religion_group = pagan
+		}
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+			add_prestige = 5
+		}		
+		if = {
+			limit = { stability = -2 }
+			add_stability = -1
+			add_prestige = 5
+		}
+	}
+	option = {
+		name = "EVTOPTG5060"		# If only we had comet sense!
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+			create_explorer = 20
+		}		
+		if = {
+			limit = { stability = -2 }
+			add_stability = -1
+			create_explorer = 20
+		}
+	}
+	option = {
+		name = "EVTOPTH5060"		# Oh comet, devil's kith and kin...
+		trigger = {
+			NOT = { religion_group = pagan }
+		}		
+		if = {
+			limit = { NOT = { stability = -2 } }
+			add_adm_power = -100
+			
+			if = {
+				limit = { religion = catholic }
+				add_papal_influence = 5
+			}
+			
+			if = {
+				limit = { religion = orthodox }
+				add_patriarch_authority = 0.05
+			}
+			
+			if = {
+				limit = { religion = protestant }
+				add_church_power = 5
+			}
+			
+			if = {
+				limit = { religion_group = muslim }
+				add_piety = 0.05
+			}
+			
+			if = {
+				limit = { 
+					OR = {
+						religion = buddhism
+						religion = vajrayana
+						religion = mahayana
+					}
+				}
+				add_karma = 5
+			}
+			
+			if = {
+				limit = {
+					AND = {
+						NOT = { religion = catholic }
+						NOT = { religion = orthodox }
+						NOT = { religion = protestant }
+						NOT = { religion_group = muslim }
+						NOT = { religion = buddhism }
+						NOT = { religion = vajrayana }
+						NOT = { religion = mahayana }
+					}
+				}
+				add_treasury = 25
+			}
+		}		
+		if = {
+			limit = { stability = -2 }
+			add_stability = -1
+			
+			if = {
+				limit = { religion = catholic }
+				add_papal_influence = 5
+			}
+			
+			if = {
+				limit = { religion = orthodox }
+				add_patriarch_authority = 0.05
+			}
+			
+			if = {
+				limit = { religion = protestant }
+				add_church_power = 5
+			}
+			
+			if = {
+				limit = { religion_group = muslim }
+				add_piety = 0.05
+			}
+			
+			if = {
+				limit = { 
+					OR = {
+						religion = buddhism
+						religion = vajrayana
+						religion = mahayana
+					}
+				}
+				add_karma = 5
+			}
+			
+			if = {
+				limit = {
+					AND = {
+						NOT = { religion = catholic }
+						NOT = { religion = orthodox }
+						NOT = { religion = protestant }
+						NOT = { religion_group = muslim }
+						NOT = { religion = buddhism }
+						NOT = { religion = vajrayana }
+						NOT = { religion = mahayana }
+					}
+				}
+				add_treasury = 25
+			}
+		}
+	}		
+}
